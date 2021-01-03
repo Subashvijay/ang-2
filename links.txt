@@ -1,0 +1,19 @@
+LINK:https://github.com/Subashvijay/Ang-1
+
+NEW:git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Subashvijay/ang-2.git
+git push -u origin main
+                
+push an existing repository :
+git remote add origin https://github.com/Subashvijay/ang-2.git
+git branch -M main
+git push -u origin main
+
+https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-angular-fontawesome-2b80129bcd7
+
+https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+
+https://angular.io/guide/deployment
