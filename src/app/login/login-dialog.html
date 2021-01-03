@@ -25,7 +25,7 @@
     <h1 class="p-2">Log in</h1>
     <fa-icon [icon]="closeicon" (click)="close()" [size]="'3x'"></fa-icon>
 </nav>
-<mat-progress-bar class="m-2" [mode]="loginStart"></mat-progress-bar>
+<mat-progress-bar *ngIf="loginStart == 'indeterminate'" class="m-2" [mode]="loginStart"></mat-progress-bar>
 
 <div class="form-group">
     <label for="">Email Id</label>
