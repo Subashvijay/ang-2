@@ -17,3 +17,5 @@ https://medium.com/better-programming/angular-font-awesome-in-5-easy-steps-with-
 https://www.npmjs.com/package/@fortawesome/angular-fontawesome
 
 https://angular.io/guide/deployment
+
+ng build --prod --output-path docs --base-href /<project_name>/
