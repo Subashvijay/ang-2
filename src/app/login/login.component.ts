@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faSlash, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { UserDetails, UserService } from '../user.service';
 
 
@@ -50,9 +50,14 @@ export class LoginDialog implements OnInit {
 
     this.dialogRef.close();
   }
+  isloading = false;
+  isComplete = false;
 
   login() {
     this.loginStart = 'indeterminate';
+    this.isloading = true;
+    setTimeout(() => { this.isloading = false; this.isComplete = true; document.getElementById('suc')?.click(); }, 3000)
+
     if (this.loginForm.valid) {
       this.userService.islogedin.next(true);
       this.userService.useretails.next(new UserDetails(

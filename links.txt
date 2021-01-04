@@ -19,3 +19,9 @@ https://www.npmjs.com/package/@fortawesome/angular-fontawesome
 https://angular.io/guide/deployment
 
 ng build --prod --output-path docs --base-href /<project_name>/
+
+npm i @angular/fire
+
+"./node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"

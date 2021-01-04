@@ -1,32 +1,44 @@
 <div class="col-12">
 
 </div>
-<nav class="navbar ">
+<nav class="navbar border-bottom border-dark">
     <!-- Navbar content -->
     <img src="assets/user.svg" width="40" height="40" class="d-inline-block align-top m-2" alt="">
     <div class="d-flex align-items-center h1 " href="#">
         Log in
     </div>
-    <fa-icon [icon]="closeicon" (click)="close()" [size]="'3x'"></fa-icon>
+    <!-- <fa-icon [icon]="closeicon" (click)="close()" [size]="'3x'"></fa-icon> -->
+    <div (click)="close()" class="btn btn-danger">
+        &times;
+    </div>
 </nav>
-<mat-progress-bar *ngIf="loginStart == 'indeterminate'" class="m-2" [mode]="loginStart"></mat-progress-bar>
+<!-- <mat-progress-bar *ngIf="loginStart == 'indeterminate'" class="m-2" [mode]="loginStart"></mat-progress-bar> -->
 <form [formGroup]="loginForm">
     <div class="form-group">
         <label>Username</label>
         <input type="text" formControlName="username" class="form-control" aria-describedby="helpId"
             placeholder="username">
-        <small id="helpId" class="form-text text-muted">Help text</small>
     </div>
     <div class="form-group">
         <label for="">Email Id</label>
         <input type="email" formControlName="email" class="form-control" aria-describedby="emailHelpId"
             placeholder="email">
-        <small id="emailHelpId" class="form-text text-muted">Help text</small>
     </div>
     <div class="form-group">
         <label for="">Password</label>
         <input type="password" formControlName="password" class="form-control" placeholder="password">
     </div>
-    <button mat-raised-button (click)="login()" color="primary">login</button>
+    <!-- <button mat-raised-button (click)="login()" color="primary">login</button> -->
 
+    <hr>
+    <div class="row d-flex justify-content-end mr-4 pt-0">
+
+        <button *ngIf="!isloading && !isComplete" [disabled]="!loginForm.valid" type="button" (click)="login()"
+            class="btn btn-primary ">login</button>
+        <button *ngIf="isloading" class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
+        <button *ngIf="isComplete" type="button" id="suc" class="btn btn-success d-flex">Success</button>
+    </div>
 </form>
