@@ -3,13 +3,14 @@
 </div>
 <nav class="navbar border-bottom border-dark">
     <!-- Navbar content -->
-    <img src="assets/user.svg" width="40" height="40" class="d-inline-block align-top m-2" alt="">
+    <!-- <img src="assets/user.svg" width="40" height="40" class="d-inline-block align-top m-2" alt=""> -->
     <div class="d-flex align-items-center h1 " href="#">
         Log in
     </div>
     <!-- <fa-icon [icon]="closeicon" (click)="close()" [size]="'3x'"></fa-icon> -->
-    <div (click)="close()" class="btn btn-danger">
-        &times;
+    <div (click)="close()">
+        <img src="assets/SVG/cancel-red.svg" style="cursor: pointer;" width="30" height="30"
+            class="d-inline-block align-top m-2" alt="">
     </div>
 </nav>
 <!-- <mat-progress-bar *ngIf="loginStart == 'indeterminate'" class="m-2" [mode]="loginStart"></mat-progress-bar> -->
@@ -31,7 +32,7 @@
     <!-- <button mat-raised-button (click)="login()" color="primary">login</button> -->
 
     <hr>
-    <div class="row d-flex justify-content-end mr-4 pt-0">
+    <div class="row d-flex justify-content-end mr-2 pt-0">
 
         <button *ngIf="!isloading && !isComplete" [disabled]="!loginForm.valid" type="button" (click)="login()"
             class="btn btn-primary ">login</button>
