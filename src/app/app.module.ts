@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { UserService } from './user.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +32,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatProgressBarModule,
     MatButtonModule,
     MatDialogModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

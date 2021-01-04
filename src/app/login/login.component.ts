@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { UserDetails, UserService } from '../user.service';
 
 
 @Component({
@@ -24,13 +26,25 @@ export class LoginComponent implements OnInit {
   selector: 'app-login-dialog',
   templateUrl: './login-dialog.html',
 })
-export class LoginDialog {
+export class LoginDialog implements OnInit {
   loginStart = '';
   closeicon = faWindowClose;
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
+    private userService: UserService,
 
   ) { }
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
+  ngOnInit(): void {
+
+
+  }
+
+
 
   close() {
 
@@ -39,6 +53,14 @@ export class LoginDialog {
 
   login() {
     this.loginStart = 'indeterminate';
+    if (this.loginForm.valid) {
+      this.userService.islogedin.next(true);
+      this.userService.useretails.next(new UserDetails(
+        this.loginForm.get('username')?.value,
+        this.loginForm.get('email')?.value,
+        this.loginForm.get('password')?.value
+      ))
+    }
 
   }
 }
